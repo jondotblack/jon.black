@@ -1,0 +1,131 @@
+---
+layout: 'Blog'
+published: true
+publishDate: '2020-07-02'
+tags: ['dev', 'gitlab', 'npm', 'designsystem']
+title: 'Using GitLab NPM Registry'
+description: 'How to use GitLab CI/CD to deploy NPM packages.'
+---
+
+Recently I was contracted to assist with rearchitecting three front-end applications to share the same design.  As a first step, I wanted to create a React component library used to transition out legacy with new components. 
+
+Since the repositories already exist with GitLab, my ideal scenario would be to leverage their native NPM Registry.  However, this would require my client to upgrade their plan from `Bronze` to `Silver,` meaning a $15/mo per user price increase.  A substantial amount, but figured it was worth trying out before committing. 
+
+Since the focus of this article is on publishing your NPM package, I'll assume you already have your code bundled.  If not, a quick way is using [Microbundle](https://github.com/developit/microbundle), which requires little to no setup.
+
+Other assumptions are that we don't ever want to publish our package if our tests fail, and only code pushed to `master` after being reviewed is considered ready for production.  So it makes sense to have this as part of our CI/CD pipelines.
+
+
+### Step 1: Create gitlab-ci.yml file
+
+A quick breakdown of the full config file; 
+- Job 1 - run the test suite and coverage report (for the README badge).
+- Job 2 - publish our NPM package. The `${CI_JOB_TOKEN}` and `${CI_PROJECT_ID}` are both default GitLab Environment Variables - you don't need to define these.
+- Job 3 - part of my standard workflow is to deploy Storybook to GitLab pages so that designers can user test issues as completed.
+
+``` yaml:.gitlab-ci.yml
+image: node:latest
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+stages:
+    - test
+    - publish
+    - pages
+
+# job 1: run tests
+test:
+  stage: test
+  script:
+    - npm install
+    - npm run test
+    - npm run test:coverage
+  artifacts:
+    when: always
+    paths:
+      - coverage
+
+# job 2: publish NPM package
+# `${CI_JOB_TOKEN}` and `${CI_PROJECT_ID}` are both default GitLab Environment Variables.
+publish:
+  stage: publish
+  image: node:12.0-slim
+    - echo '//gitlab.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}'>.npmrc
+    - echo '//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}'>.npmrc
+    - npm publish
+  only:
+    - master
+
+# job 3: deploy Storybook to GitLab pages
+pages:
+  stage: pages
+  type: deploy
+  script:
+    - npm install
+    - npm run build:storybook
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+```
+
+
+### Step 2: Define GitLab registry
+
+When installing the scoped package, you need to tell NPM to download from the registry GitLab explicitly.  I chose to declare this as part of my `.npmrc` file, but you can also move this line to Job 2 of the .gitlab-ci.
+
+```bash:.npmrc
+<@username>:registry=https://gitlab.com/api/v4/packages/npm/
+```
+
+### Step 3: Add NPM publishConfig
+
+The final step is updating your `package.json` file.  By default running `npm publish` will attempt to upload to the NPMjs registry, not GitLab.  Again we need to be explicit in telling NPM where to point to.
+
+```json:package.json
+{ 
+  "name": "<@username>/<packageName>",
+  ...
+  "publishConfig": {
+    "<@username>:registry": "https://gitlab.com/api/v4/projects/19706603/packages/npm/"
+  }
+}
+```
+
+
+### Switching to NPMjs.com
+
+As I mentioned at the start of this article, you have to be on a GitLab Silver or higher plan to have access to this feature.  Ultimately it was decided the cost is too much and chose to use NPMjs registry instead.  For $7/mo for you can have an NPM Organization with unlimited private repositories.  
+
+To change this, you only need to update Step 2 of the `.gitlab-ci`.
+
+``` yaml:.gitlab-ci.yml
+# job 2: publish NPM package
+publish:
+  stage: publish
+  image: node:12.0-slim
+  script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}'>.npmrc
+    - npm publish
+  only:
+    - master
+```
+
+First, you need to generate an NPM Access Token.  You can either do this through the [web UI](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) or [CLI](https://docs.npmjs.com/creating-and-viewing-authentication-tokens).  Make sure you check the box so that it has both read and write permissions.  
+
+Next, create a new GitLab Environment Variable using the key/value of `NPM_AUTH_TOKEN` and your generated token.  You can find this on the CI/CD Settings page by navigating to Settings > CI/CD and expanding the Variables section.
+
+If you get a 403 error, make sure the name of your package.json is scoped to your username/organization.
+
+
+### Conclusion
+I still think GitLab is the best place to host your source code.  However, with GitHub recently releasing their own package registry (also purchasing NPM) and dropping the price of their Team plan to $4/mo - it might be a better choice depending on the project.
+
+
+### References
+- [Gitlab NPM registry docs](https://docs.gitlab.com/ee/user/packages/npm_registry/)
+- [Generating NPM token docs](https://docs.npmjs.com/creating-and-viewing-authentication-tokens)

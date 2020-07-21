@@ -1,0 +1,21 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Container } from 'components/grid';
+import { Mixtape } from '.';
+
+<Meta title='Components | Mixtape' />
+
+<Preview>
+  <Story name='base'>
+    <Container>
+      <Mixtape
+        description="I'm baby farm-to-table austin humblebrag, VHS put a bird on it vape intelligentsia tote bag hammock jianbing everyday carry."
+        name="v01.20"
+        spotifyId="143VT5QmyDGBpjFGtROhoc"
+      />
+    </Container>
+  </Story>
+</Preview>
+
+## Props
+<Props of={Mixtape} />

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List should render correctly with all props 1`] = `
+.emotion-6 {
+  border-top: 1px solid rgba(64,65,59,0.3);
+}
+
+.emotion-0 {
+  padding-top: 25px;
+  padding-bottom: 20px;
+  font-size: 40px;
+  line-height: 1.2;
+  border-bottom: 1px solid rgba(64,65,59,0.3);
+}
+
+@media (max-width:992px) {
+  .emotion-0 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+.emotion-0 a {
+  display: block;
+  background: url('/static/svg/icon_external_link.svg') 100% 50% no-repeat;
+}
+
+.emotion-0 p:last-of-type {
+  margin-bottom: 0;
+}
+
+.emotion-0 p a {
+  display: inline-block;
+  background: none;
+}
+
+<div
+  className="emotion-6 emotion-7"
+>
+  <div
+    className="emotion-0 emotion-1"
+  >
+    One
+  </div>
+  <div
+    className="emotion-0 emotion-1"
+  >
+    Two
+  </div>
+  <div
+    className="emotion-0 emotion-1"
+  >
+    Three
+  </div>
+</div>
+`;

@@ -1,0 +1,16 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { StatusBar } from '.';
+
+<Meta title='Components | StatusBar' />
+
+<Preview>
+  <Story name='base'>
+    <div style={{ height: "100vh" }}>
+      <StatusBar updates={['recent blog post', 'recent mixtape']} />
+    </div>
+  </Story>
+</Preview>
+
+## Props
+<Props of={StatusBar} />

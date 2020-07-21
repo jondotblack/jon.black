@@ -1,0 +1,15 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Venture } from '.';
+import { ventures } from 'data/ventures';
+
+<Meta title='Components | Venture' />
+
+<Preview>
+  <Story name='base'>
+    <Venture {...ventures[0]} />
+  </Story>
+</Preview>
+
+## Props
+<Props of={Venture} />

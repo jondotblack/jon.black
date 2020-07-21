@@ -1,0 +1,22 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Col, Container, Row } from 'components/grid';
+import { Newsletter } from '.';
+
+<Meta title='Components | Newsletter' />
+
+<Preview>
+  <Story name='base'>
+    <Container>
+      <Row>
+        <Col span={{ xs: 12, lg: 6 }}>
+          <Newsletter />
+        </Col>
+      </Row>
+    </Container>
+  </Story>
+</Preview>
+
+
+## Props
+<Props of={Newsletter} />

@@ -1,0 +1,19 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Container } from 'components/grid';
+import { WeatherContainer } from '.';
+import Weather from './Weather';
+
+<Meta title='Components | Weather' />
+
+<Preview>
+  <Story name='base'>
+    <Container>
+      <WeatherContainer />
+    </Container>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={WeatherContainer} />

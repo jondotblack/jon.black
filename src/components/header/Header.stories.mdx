@@ -1,0 +1,41 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import Header from './Header';
+import Desktop from './Desktop';
+import Mobile from './Mobile';
+
+<Meta title='Components | Header' />
+
+# Header
+<Preview>
+  <Story name='base'>
+    <Header />
+  </Story>
+</Preview>
+
+## Props
+<Props of={Header} />
+
+
+# Desktop Navigation
+<Preview>
+  <Story name='desktopHeader'>
+    <Desktop />
+  </Story>
+</Preview>
+
+## Props
+<Props of={Desktop} />
+
+
+# Mobile Navitation
+<Preview>
+  <Story name='mobileNavigation'>
+    <div style={{ height: "100vh" }}>
+      <Mobile activeNav />
+    </div>
+  </Story>
+</Preview>
+
+## Props
+<Props of={Mobile} />

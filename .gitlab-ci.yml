@@ -1,0 +1,38 @@
+image: node:latest
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+stages:
+    - test
+    - pages
+    # - will deploy master branch to production, app hosted through render.com
+
+# job 1: run tests
+test:
+  stage: test
+  script:
+    - npm install
+    - npm run test
+    - npm run test:coverage
+  artifacts:
+    when: always
+    paths:
+      - coverage
+
+# job 2: deploy Storybook to GitLab pages
+# build storybook to dist folder and move contents into public
+# so that all public assets are not removed first
+pages:
+  stage: pages
+  script:
+    - npm install
+    - NEXT_PUBLIC_WEATHER_API_KEY=$NEXT_PUBLIC_WEATHER_API_KEY npm run build:storybook
+    - mv dist/* public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master

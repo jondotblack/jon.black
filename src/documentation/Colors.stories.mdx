@@ -1,0 +1,19 @@
+import { ColorPalette, ColorItem, Meta } from '@storybook/addon-docs/blocks';
+import { theme } from 'styles/theme';
+
+import { Text } from 'components/typography';
+
+<Meta title='Documentation | Color Palette' />
+
+## Full color palette
+
+<ColorPalette>
+  {Object.entries(theme.colors).map(([name, color]) => {
+    return (
+      <ColorItem
+        title={name}
+        colors={[color]}
+      />
+      );
+  })}
+</ColorPalette>

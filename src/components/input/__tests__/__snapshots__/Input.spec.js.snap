@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render correctly with all props 1`] = `
+.emotion-0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #40413b;
+  background: transparent;
+  border: 0;
+}
+
+.emotion-0:focus {
+  outline: none;
+}
+
+<input
+  aria-label="name"
+  className="emotion-0 emotion-1"
+  name="name"
+  placeholder="george harrison"
+  type="text"
+/>
+`;

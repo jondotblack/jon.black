@@ -1,0 +1,109 @@
+---
+layout: 'Blog'
+published: true
+publishDate: '2020-05-19'
+tags: ['dev', 'nextjs', 'storybook']
+title: 'Setting up Storybook & NextJS'
+description: 'A guide for how to troubleshoot issues when setting up NextJS and Storybook.'
+---
+
+As part of redoing my personal website, I integrated [NextJs](https://nextjs.org/) with the latest version of [Storybook](https://storybook.js.org/).  Recently there has been a fair amount of changes with both, so here are a couple of the quirks I ran into.
+
+### NextJS publicRuntimeConfig
+
+I didn't want to mock any API calls in Storybook, so I had to access the keys in my .env, which in NextJS is common to use the [publicRuntimeConfig](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration). I didn't see this in the documentation, but you can use `setConfig` to achieve this.
+
+``` js:.storybook/main.js
+const path = require('path');
+const Dotenv = require('dotenv-webpack');
+
+module.exports = {
+  webpackFinal: async (config) => {
+    config.plugins.push(
+      new Dotenv({
+        path: path.resolve(__dirname, '../.env'),
+      })
+    );
+
+    return config;
+  }
+},
+```
+
+Then update the Storybook preview config.
+
+```js:.storybook/preview.js
+import { setConfig } from 'next/config';
+
+const {
+  WEATHER_API_KEY,
+} = process.env;
+
+// set NextJS Config
+setConfig({
+  publicRuntimeConfig: {
+    WEATHER_API_KEY,
+  },
+});
+```
+
+As of NextJS version 9.4, you no longer have to use `publicRuntimeConfig`.  Instead, you can add an `env` object to your `next.config.js` and access any `process.env.*` variable.  
+
+
+### NextJS 'No router instance found.'
+If you are using [next/link](https://nextjs.org/docs/api-reference/next/link), you will encounter this error in the console.  
+
+```js
+Uncaught Error: No router instance found.
+```
+
+The simplest solution is adding a decorator using the [storybook-addon-next-router](https://www.npmjs.com/package/storybook-addon-next-router) package.
+
+```js:.storybook/preview.js
+import { addDecorator } from '@storybook/react';
+import { withNextRouter } from 'storybook-addon-next-router';
+
+addDecorator(withNextRouter());
+```
+
+
+### Storybook a11y add-on
+As of writing this post, the documentation for this is incorrect in a few places.  I had to piece together a couple of GitHub issues to figure out the proper implementation.  You must both add the plugin to the add-on list and use a decorator. 
+
+```js:.storybook/main.js
+addons: [..., '@storybook/addon-a11y'],
+```
+
+```js:.storybook/preview.js
+import { addDecorator } from '@storybook/react';
+import { withA11y } from '@storybook/addon-a11y';
+
+addDecorator(withA11y);
+```
+
+
+### Adding emotion Global styles
+
+The solution is the same, whether you are using styled-components or emotion.
+
+```js:.storybook/preview.js
+import { addDecorator } from '@storybook/react';
+import { Global } from '@emotion/core';
+// your global stylesheet may be named different
+import { Styles } from 'styles/global'; 
+
+addDecorator((storyFn) => (
+  <div style={{
+    margin: '0',
+    height: '100vh',
+  }}>
+    <Global styles={Styles} />
+
+    {storyFn()}
+  </div>
+));
+```
+
+### References
+- [NextJS 9.4 Changes](https://nextjs.org/blog/next-9-4)
+- [NextJS Enviornment Variables](https://nextjs.org/docs/api-reference/next.config.js/environment-variables)

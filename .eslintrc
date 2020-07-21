@@ -1,0 +1,33 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_id", "_key", "_updatedAt"] }],
+    "no-unused-expressions": ["error", { "allowShortCircuit": false, "allowTernary": true }],
+    "prefer-promise-reject-errors": "off",
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-array-index-key": "off",
+    "semi": "error"
+  }
+}
