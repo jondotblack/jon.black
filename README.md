@@ -13,6 +13,8 @@ Technical stack;
 - React Testing Library (https://testing-library.com/docs/react-testing-library/intro)
 ```
 
+> This codebase & CI/CD are configured for [GitLab](https://gitlab.com/jondotblack/jon.black) and mirrored to [GitHub](github.com/jondotblack/jon.black/).
+
 
 ##  Getting started
 To get up and running;
