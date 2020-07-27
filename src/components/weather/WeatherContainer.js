@@ -21,7 +21,7 @@ const WeatherContainer = () => {
         return Promise.reject({ status: res.status, statusText: res.statusText });
       })
       .then((resData) => setData(resData))
-      .catch((err) => console.log('err', err));
+      .catch((err) => console.log('error', err));
   }
 
   useEffect(() => {

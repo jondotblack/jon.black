@@ -64,7 +64,7 @@ const Layout = (props) => {
 
       <StatusBar bgColor={bgColor} updates={updates} />
       <Header bgColor={bgColor} />
-      <Container py={4}>
+      <Container pb={4}>
         {narrow ? (
           <Row justifyContent="center">
             <Col span={{ xs: 12, md: 10, lg: 8 }}>{children}</Col>
