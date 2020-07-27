@@ -20,7 +20,9 @@ const NextLink = (props) => {
   const router = useRouter();
   const urlSegments = router.pathname.split('/');
 
-  const classes = classNames(className, { active: href.indexOf(urlSegments[1]) !== -1 });
+  const classes = classNames(className, {
+    active: href.indexOf(urlSegments[1]) !== -1 && router.pathname !== '/',
+  });
 
   return (
     <Link href={href}>
