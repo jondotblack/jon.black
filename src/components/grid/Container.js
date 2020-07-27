@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ThemeProvider } from 'emotion-theming';
-import { theme } from 'styles/theme';
-
 import * as Styled from './Grid.styled';
 
 const propTypes = {
@@ -16,11 +13,8 @@ const defaultProps = {
 
 const Container = (props) => {
   const { fluid, ...remainingProps } = props;
-  return (
-    <ThemeProvider theme={theme}>
-      <Styled.Container fluid={fluid} {...remainingProps} />{' '}
-    </ThemeProvider>
-  );
+
+  return <Styled.Container fluid={fluid} {...remainingProps} />;
 };
 
 Container.displayName = 'Container';

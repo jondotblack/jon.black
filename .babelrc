@@ -15,7 +15,8 @@
           "pages": "./src/pages",
           "static": "./public/static",
           "styles": "./src/styles",
-          "utils": "./src/utils",
+          "testing": "./testing",
+          "utils": "./src/utils"
         },
       },
     ],

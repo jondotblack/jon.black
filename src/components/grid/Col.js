@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ThemeProvider } from 'emotion-theming';
 import { theme } from 'styles/theme';
 import isObject from 'lodash/isObject';
 import isInteger from 'lodash/isInteger';
@@ -76,14 +75,12 @@ const Col = (props) => {
   const { offset, order, span, ...remainingProps } = props;
 
   return (
-    <ThemeProvider theme={theme}>
-      <Styled.Col
-        order={order}
-        {...generateSpan(span)}
-        {...generateOffset(offset)}
-        {...remainingProps}
-      />
-    </ThemeProvider>
+    <Styled.Col
+      order={order}
+      {...generateSpan(span)}
+      {...generateOffset(offset)}
+      {...remainingProps}
+    />
   );
 };
 

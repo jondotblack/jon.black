@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Grid should render a container correctly with all props 1`] = `
-Array [
-  .emotion-0 {
+.emotion-0 {
   box-sizing: border-box;
   width: 100%;
   max-width: 1400px;
@@ -14,12 +13,10 @@ Array [
 }
 
 <div
-    className="emotion-0 emotion-1"
-  >
-    container content
-  </div>,
-  " ",
-]
+  className="emotion-0 emotion-1"
+>
+  container content
+</div>
 `;
 
 exports[`Grid should render a row correctly with all props 1`] = `

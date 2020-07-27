@@ -13,7 +13,7 @@ module.exports = {
   transform: {
     '^.+\\.[t|j]sx?$': 'babel-jest',
   },
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+  setupFilesAfterEnv: ['<rootDir>/testing/setup.js'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],
   verbose: true,
 };
