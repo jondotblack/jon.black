@@ -1,6 +1,8 @@
 # jon.black.next
 [![pipeline status](https://gitlab.com/jondotblack/jon.black/badges/master/pipeline.svg)](https://gitlab.com/jondotblack/jon.black/-/commits/master) [![coverage report](https://gitlab.com/jondotblack/jon.black/badges/master/coverage.svg)](https://gitlab.com/jondotblack/jon.black/-/commits/master)
 
+> This codebase & CI/CD are configured for [GitLab](https://gitlab.com/jondotblack/jon.black) and mirrored to [GitHub](https://github.com/jondotblack/jon.black/).
+
 Technical stack;
 ``` bash
 - React (https://reactjs.org/)
@@ -13,7 +15,6 @@ Technical stack;
 - React Testing Library (https://testing-library.com/docs/react-testing-library/intro)
 ```
 
-> This codebase & CI/CD are configured for [GitLab](https://gitlab.com/jondotblack/jon.black) and mirrored to [GitHub](github.com/jondotblack/jon.black/).
 
 
 ##  Getting started
