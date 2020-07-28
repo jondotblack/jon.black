@@ -1,0 +1,96 @@
+---
+layout: 'Blog'
+published: true
+publishDate: '2020-07-27'
+tags: ['dev', 'react', 'emotion', 'styledsystem']
+title: 'Styled System + Emotion Grid System'
+description: 'A simple flexbox grid system using Styled System and Emotion.'
+---
+
+At some point, every developer has worked with a front-end framework.  Whether it be Bootstrap, Material, or Tailwind, they each come with their own grid system.  After years of building component libraries for Amazon, American Express, and Spotify, I find the cleanest implementation to be using [Styled System](https://styled-system.com/) with [Emotion](https://emotion.sh/) or [Styled Components](https://styled-components.com/).
+
+I'm using this pattern with my website that is [open source](https://gitlab.com/jondotblack/jon.black) but created a [simplified repository](https://github.com/jondotblack/styled-system-emotion-grid-system) with only the required dependencies.
+
+
+### Dependencies
+
+- [React](https://reactjs.org/)
+- [Emotion](https://emotion.sh/)
+- [Styled System](https://styled-system.com/)
+- [Jest](jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+
+I included basic snapshots for each component and a single test to make sure that child content is rendering correctly.  The ultimate intent is to demonstrate the testing utils that help with using Emotion's ThemeProvider.
+
+
+### Components
+
+Two general utility components that render as `div`'s by default, but extend the Style System's API for Color, Flexbox, Layout, and Spacing.
+
+``` js:src/components/box/Box.js
+<Box backgroundColor='blue' my={{ _: 3, md: 2 }} order='2'>...</Box>
+```
+
+``` js:src/components/box/Flex.js
+<Flex alignContent='center' justifyContent='center'>...</Flex>
+```
+
+I prefer the pattern of being explicit with the nesting structure.  `Container` and `Col` extend the `Box` component with some additional styling, and `Row` extends `Flex`. 
+
+All components support both single numeric value (`<Col span={6}>...</Col>`) and passing an object of breakpoints (`<Col span={{ _: 6, md: 4, lg: 3 }}>...</Col>`).  View the [Storybook docs](https://jondotblack.github.io/styled-system-emotion-grid-system/?path=/docs/components-grid--base) for more examples.
+
+``` js
+ <Container fluid>
+  <Row>
+    # basic usage
+    <Col span={{ sm: '6', md: '4', xl: '3' }}>...</Col>
+
+    # auto
+    <Col span="auto">...</Col>
+
+    # order
+    <Col order={{ sm: 1, md: 2 }}>...</Col>
+
+    # offset
+    <Col offset={2} span={4}>...</Col>
+  </Row>
+</Container>
+```
+
+### Customize Theme
+
+In the `styles` directory, there is a basic `theme.js` file.  Here you can configure the breakpoints, number of columns, and gutter width.  It follows the same pattern as Bootstrap, but changing these values is all that's required to get working.
+
+``` js:src/styles/theme.js
+export const theme = { ... };
+
+/* 
+  using Styled System variants requires an array of 
+  breakpoints, aliases added for ease of use
+*/
+const breakpoints = ['576px', '768px', '992px', '1200px', '1400px'];
+theme.breakpoints = breakpoints;
+theme.breakpoints.xs = '0';
+[
+  theme.breakpoints.sm,
+  theme.breakpoints.md,
+  theme.breakpoints.lg,
+  theme.breakpoints.xl,
+  theme.breakpoints.xxl,
+] = breakpoints;
+
+theme.grid = {
+  columns: 12,
+  gutter: '24px',
+  maxWidth: theme.breakpoints.xxl,
+};
+```
+
+If you run into any issues, feel free to [open an issue](https://github.com/jondotblack/styled-system-emotion-grid-system) or email me questions at [hello@jon.black](mailto:hello@jon.black).
+
+
+### References
+
+- [https://emotion.sh/docs/emotion-theming](https://emotion.sh/docs/emotion-theming)
+- [https://styled-system.com/](https://styled-system.com/)
+- [https://rebassjs.org/reflexbox/](https://rebassjs.org/reflexbox/)

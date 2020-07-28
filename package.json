@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Jon Black <black@jon.black>",
-  "license": "UNLICENSED",
+  "author": "Jon Black <hello@jon.black> (https://www.jon.black)",
+  "license": "MIT",
   "scripts": {
     "build": "next build",
     "build:storybook": "build-storybook -c .storybook -o dist",
@@ -24,6 +24,7 @@
   },
   "keywords": [
     "jon.black",
+    "react",
     "nextjs",
     "storybook"
   ],

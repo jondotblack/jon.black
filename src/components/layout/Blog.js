@@ -30,7 +30,7 @@ const BlogLayout = (frontMatter) => {
         seo={{ title: `Blog - ${title}`, description, openGraph: { description } }}
       >
         {published && (
-          <Styled.Blog>
+          <Styled.Blog pt={4}>
             <Col>
               <Text as="h1">{title}</Text>
               {children}

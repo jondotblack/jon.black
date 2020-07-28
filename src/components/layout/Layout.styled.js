@@ -46,8 +46,8 @@ export const Blog = styled(Row)`
 
   .remark-code-title {
     padding: 0.5em;
-    font-size: 0.825em;
-    color: #333;
+    font-size: 0.825rem;
+    color: #40413b;
     background-color: #f8f8f8;
     border-bottom: 1px solid #ddd;
   }
