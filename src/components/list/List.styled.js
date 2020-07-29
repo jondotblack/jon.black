@@ -19,6 +19,7 @@ export const Item = styled.div`
 
   a {
     display: block;
+    padding-right: 60px;
     background: url('/static/svg/icon_external_link.svg') 100% 50% no-repeat;
   }
 
