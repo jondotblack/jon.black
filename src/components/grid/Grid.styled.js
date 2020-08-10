@@ -9,8 +9,13 @@ export const Container = styled(Box)`
   max-width: ${({ theme }) => theme.grid.maxWidth};
   margin-right: auto;
   margin-left: auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: 3.5rem;
+  padding-left: 6rem;
+
+  ${({ theme }) => theme.mediaQueries.lg`
+    padding-right: 1rem;
+    padding-left: 1rem;
+  `};
 
   ${({ fluid }) =>
     fluid &&
