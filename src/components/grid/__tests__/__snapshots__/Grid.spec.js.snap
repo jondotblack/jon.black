@@ -19,7 +19,7 @@ exports[`Grid should render a container correctly with all props 1`] = `
 </div>
 `;
 
-exports[`Grid should render a row correctly with all props 1`] = `
+exports[`Grid should render a row correctly 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
