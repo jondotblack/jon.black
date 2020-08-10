@@ -1,6 +1,12 @@
 export const mixtapes = [
   {
     description: '',
+    name: 'v08.20',
+    spotifyId: '5YyU8KOnaQiyBoIicokH2c',
+    published: true,
+  },
+  {
+    description: '',
     name: 'v07.20',
     spotifyId: '7llzvUdxwD3797w4qyBvUr',
     published: true,
