@@ -22,7 +22,7 @@ const Mixtape = (props) => {
   return (
     <Styled.Mixtape>
       <Row mb={5}>
-        <Col span={{ xs: 12, lg: 4 }} offset={{ lg: 3 }} mb={{ xs: 4, lg: 0 }}>
+        <Col span={{ xs: 12, lg: 6 }} mb={{ xs: 4, lg: 0 }}>
           <Text as="h3">{name}</Text>
           <Text>{description}</Text>
           <Text>
@@ -35,7 +35,7 @@ const Mixtape = (props) => {
             </a>
           </Text>
         </Col>
-        <Col span={{ xs: 12, lg: 5 }}>
+        <Col span={{ xs: 12, lg: 6 }}>
           <iframe
             src={`https://open.spotify.com/embed/playlist/${spotifyId}`}
             width="300"

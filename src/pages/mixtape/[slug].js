@@ -4,6 +4,7 @@ import { theme } from 'styles/theme';
 
 import { slugify } from 'utils/slugify';
 
+import { Col, Row } from 'components/grid';
 import { Layout } from 'components/layout';
 import { Mixtape } from 'components/mixtape';
 
@@ -24,7 +25,11 @@ const MixtapeDetailedPage = (props) => {
 
   return (
     <Layout bgColor={theme.colors.morado} seo={{ title: `Mixtape - ${name}` }}>
-      <Mixtape description={description} name={name} spotifyId={spotifyId} />
+      <Row mb={5}>
+        <Col offset={{ lg: 3 }}>
+          <Mixtape description={description} name={name} spotifyId={spotifyId} />
+        </Col>
+      </Row>
     </Layout>
   );
 };
