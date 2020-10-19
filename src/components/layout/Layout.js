@@ -46,7 +46,7 @@ const Layout = (props) => {
     `Currently playing <NextLink href="/mixtape/${slugify(recentMixtape.name)}">${
       recentMixtape.name
     }</NextLink>`,
-    `This site is open source on <a href="https://gitlab.com/jondotblack/jon.black" target="_blank" rel="noopener noreferrer">GitLab</a>`,
+    `This site is open source on <a href="https://github.com/jondotblack/jon.black" target="_blank" rel="noopener noreferrer">GitHub</a>`,
   ];
 
   return (

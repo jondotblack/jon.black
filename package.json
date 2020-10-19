@@ -8,8 +8,10 @@
   "license": "MIT",
   "scripts": {
     "build": "next build",
+    "build:static": "npm run build && npm run export",
     "build:storybook": "build-storybook -c .storybook -o dist",
     "dev": "next",
+    "export": "next export",
     "lint": "eslint './src/**/*.{js,jsx}'",
     "start": "next start -p $PORT",
     "storybook": "start-storybook -s ./public -p 6006",

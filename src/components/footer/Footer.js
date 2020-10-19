@@ -57,11 +57,11 @@ const Footer = (props) => {
               <Col>
                 <Newsletter />
                 <Styled.OpenSource
-                  href="https://gitlab.com/jondotblack/jon.black"
+                  href="https://github.com/jondotblack/jon.black"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  This site is open source <b>on GitLab</b>
+                  This site is open source <b>on GitHub</b>
                 </Styled.OpenSource>
               </Col>
             </Row>

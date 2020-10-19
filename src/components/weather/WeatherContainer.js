@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch';
 import Weather from './Weather';
 
 const { NEXT_PUBLIC_WEATHER_API_KEY } = process.env;
-const zipCode = '07304';
+const zipCode = '08833';
 
 const WeatherContainer = () => {
   const [data, setData] = useState(null);
