@@ -3,8 +3,10 @@ import React from 'react';
 import { Col, Container, Row } from 'components/grid';
 import { List } from '.';
 
-export default { title: 'Components | List' };
-
+export default {
+  component: List,
+  title: 'Components/List',
+};
 export const base = () => (
   <Container py={5}>
     <Row>

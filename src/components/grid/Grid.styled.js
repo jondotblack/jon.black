@@ -1,52 +1,41 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { flexbox, layout } from 'styled-system';
+import { compose, space, layout, typography, color, background, flexbox } from 'styled-system';
+import css from '@styled-system/css';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
-import { Box, Flex } from 'components/box';
+import { theme } from 'styles/theme';
 
-export const Container = styled(Box)`
-  width: 100%;
-  max-width: ${({ theme }) => theme.grid.maxWidth};
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 3.5rem;
-  padding-left: 6rem;
+// eslint-disable-next-line no-underscore-dangle
+const base = (props) => css(props.__css)(props.theme);
+const sx = (props) => css(props.sx)(props.theme);
 
-  ${({ theme }) => theme.mediaQueries.lg`
-    padding-right: 1rem;
-    padding-left: 1rem;
-  `};
+export const Box = styled('div', {
+  shouldForwardProp,
+})(
+  {
+    boxSizing: 'border-box',
+  },
+  base,
+  sx,
+  (props) => props.css,
+  compose(space, layout, typography, color, background, flexbox),
+);
 
-  ${({ fluid }) =>
-    fluid &&
-    css`
-      max-width: 100%;
-    `}
-`;
+export const Flex = styled(Box)({
+  display: 'flex',
+});
 
-export const Row = styled(Flex)`
-  flex: 1 0 100%;
-  flex-wrap: wrap;
+export const Container = styled(Box)(({ fluid }) => ({
+  width: '100%',
+  maxWidth: fluid ? '100%' : theme.grid.maxWidth,
+}));
 
-  ${({ theme }) =>
-    css`
-      margin-right: calc(${theme.grid.gutter} / -2);
-      margin-left: calc(${theme.grid.gutter} / -2);
-    `}
-`;
+export const Row = styled(Flex)({
+  flex: '1 0 100%',
+  flexWrap: 'wrap',
+});
 
-export const Col = styled(Box)`
-  position: relative;
-  flex: 1 0 0%;
-  width: 100%;
-  max-width: 100%;
-
-  ${({ theme }) =>
-    css`
-      padding-right: calc(${theme.grid.gutter} / 2);
-      padding-left: calc(${theme.grid.gutter} / 2);
-    `}
-
-  ${flexbox}
-  ${layout}
-`;
+export const Col = styled(Box)({
+  position: 'relative',
+  width: '100%',
+});

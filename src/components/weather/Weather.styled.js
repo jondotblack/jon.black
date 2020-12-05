@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { Flex } from 'components/box';
+import { Flex } from 'components/grid';
 
 export const Weather = styled(Flex)`
   align-items: center;

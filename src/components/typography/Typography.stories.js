@@ -3,8 +3,10 @@ import React from 'react';
 import { Container, Row, Col } from 'components/grid';
 import { Text } from '.';
 
-export default { title: 'Components | Typography' };
-
+export default {
+  component: Text,
+  title: 'Components/Text',
+};
 export const lead = () => (
   <Container>
     <Row>

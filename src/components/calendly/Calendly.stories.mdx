@@ -3,15 +3,18 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { Container } from 'components/grid';
 import { Calendly } from '.';
 
-<Meta title='Components | Calendly' />
+<Meta
+  component={Calendly}
+  title='Components/Calendly'
+/>
 
-<Preview>
-  <Story name='base'>
+<Canvas>
+  <Story name="base">
     <Container my={5}>
       <Calendly />
     </Container>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props
 <Props of={Calendly} />
