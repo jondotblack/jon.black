@@ -1,21 +1,34 @@
 {
   "env": {
     "browser": true,
-    "commonjs": true,
     "es6": true,
-    "jest": true,
-    "node": true
+    "jest/globals": true,
   },
+  "parser": "babel-eslint",
   "extends": [
     "airbnb",
-    "eslint:recommended",
-    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
     "prettier/react"
   ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
   "plugins": [
-    "prettier"
+    "jest",
+    "prettier",
+    "react-hooks"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/no-unresolved": "off",

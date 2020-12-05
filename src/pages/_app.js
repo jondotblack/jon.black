@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
 
 import { DefaultSeo } from 'next-seo';
-import { ThemeProvider } from 'emotion-theming';
-import { theme } from 'styles/theme';
+import { AppProvider } from 'components/appProvider';
 
 import * as gtag from 'utils/gtag';
 import SEO from '../../next-seo.config';
@@ -29,10 +28,10 @@ const App = ({ Component, pageProps }) => {
   const canonical = `${SEO.canonical}${router.pathname}`;
 
   return (
-    <ThemeProvider theme={theme}>
+    <AppProvider>
       <DefaultSeo {...SEO} canonical={canonical} openGraph={{ url: canonical }} />
       <Component {...pageProps} />
-    </ThemeProvider>
+    </AppProvider>
   );
 };
 

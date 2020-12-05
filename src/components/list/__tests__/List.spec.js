@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import '@testing-library/jest-dom/extend-expect';
-
 import { List } from '../index';
 
 describe('List', () => {

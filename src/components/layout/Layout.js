@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { Styles } from 'styles/global';
 
 import orderBy from 'lodash/orderBy';

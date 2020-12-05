@@ -1,11 +1,12 @@
 import React from 'react';
+import { theme } from 'styles/theme';
 
 import * as Styled from './Grid.styled';
 
-const Row = (props) => {
-  return <Styled.Row {...props} />;
-};
+const Row = (props) => <Styled.Row {...props} />;
 
-Row.displayName = 'Row';
+Row.defaultProps = {
+  mx: `${theme.grid.gutter / -2}px`,
+};
 
 export default Row;

@@ -20,8 +20,10 @@ sayOutput();
   \`\`\`
 `;
 
-export default { title: 'Components | Markdown' };
-
+export default {
+  component: Markdown,
+  title: 'Components/Markdown',
+};
 export const base = () => (
   <Container>
     <Markdown>{mockMarkdown}</Markdown>

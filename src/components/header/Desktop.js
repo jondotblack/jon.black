@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from 'components/button';
-import { Container, Row, Col } from 'components/grid';
+import { Container, Flex, Box } from 'components/grid';
 import { NextLink } from 'components/nextLink';
 
 import * as Styled from './Header.styled';
@@ -18,13 +18,14 @@ const DesktopNavigation = (props) => {
   return (
     <Styled.Header>
       <Container>
-        <Row alignItems="center" justifyContent="space-between">
-          <Col span={{ xs: 'auto', lg: 3 }}>
-            <Styled.Logo>
-              <NextLink href="/">Jon Black</NextLink>
+        <Flex alignItems="center" justifyContent="space-between">
+          <Box>
+            <Styled.Logo as={NextLink} href="/">
+              Jon Black
             </Styled.Logo>
-          </Col>
-          <Col span={{ xs: 'auto', lg: 9 }}>
+          </Box>
+
+          <Box>
             <Styled.HamburgerNav>
               <Button
                 onClick={toggle}
@@ -42,8 +43,8 @@ const DesktopNavigation = (props) => {
               <NextLink href="/mixtape">Mixtape</NextLink>
               <NextLink href="/contact">Contact</NextLink>
             </Styled.HeaderNav>
-          </Col>
-        </Row>
+          </Box>
+        </Flex>
       </Container>
     </Styled.Header>
   );

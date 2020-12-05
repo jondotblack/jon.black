@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import { act, fireEvent, render, screen } from 'utils/testing';
 
 import { Input } from '../index';
 
