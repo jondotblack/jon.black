@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'utils/testing';
 import { theme } from 'styles/theme';
 
-import { Row } from '..';
+import { Row } from '../index';
 
 describe('Row', () => {
   const text = 'Hello World!';

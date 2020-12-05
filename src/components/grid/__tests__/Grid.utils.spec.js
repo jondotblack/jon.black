@@ -14,7 +14,7 @@ test('calculate the proper flex width based on span value', () => {
     expect.objectContaining({
       maxWidth: toPercent(value.span / theme.grid.columns),
       flex: `1 0 ${toPercent(value.span / theme.grid.columns)}`,
-    })
+    }),
   );
 
   expect(generateProps(values)).toEqual(
@@ -27,6 +27,6 @@ test('calculate the proper flex width based on span value', () => {
         _: `1 0 ${toPercent(values.span._ / theme.grid.columns)}`,
         md: `1 0 ${toPercent(values.span.md / theme.grid.columns)}`,
       },
-    })
+    }),
   );
 });

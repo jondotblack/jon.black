@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'utils/testing';
 import { theme } from 'styles/theme';
 
-import { Box } from '..';
+import { Box } from '../index';
 
 describe('Box', () => {
   const text = 'Hello World!';
@@ -29,7 +29,6 @@ describe('Box', () => {
         sx={{
           bg: 'primary',
           color: 'white',
-          fontSize: 3,
           ml: 3,
         }}
       />,
@@ -38,7 +37,6 @@ describe('Box', () => {
     const { firstChild } = container;
     expect(firstChild).toHaveStyle(`
       margin-left: ${theme.space[3]}px;
-      font-size: ${theme.fontSizes[3]}px;
       color: ${theme.colors.white};
       background-color: ${theme.colors.primary};
     `);

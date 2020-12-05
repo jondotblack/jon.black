@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'utils/testing';
 import { theme } from 'styles/theme';
 
-import { Container } from '..';
+import { Container } from '../index';
 
 describe('Container', () => {
   const text = 'Hello World!';

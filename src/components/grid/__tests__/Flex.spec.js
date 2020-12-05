@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'utils/testing';
 
-import { Flex } from '..';
+import { Flex } from '../index';
 
 describe('Flex', () => {
   const text = 'Hello World!';
@@ -17,7 +17,7 @@ describe('Flex', () => {
     const { container } = render(
       <Flex alignItems="center" justifyContent="center" order="3">
         {text}
-      </Flex>
+      </Flex>,
     );
 
     const { firstChild } = container;

@@ -3,7 +3,7 @@ import { render } from 'utils/testing';
 import { theme } from 'styles/theme';
 import { toPercent } from '../Grid.utils';
 
-import { Col } from '..';
+import { Col } from '../index';
 
 describe('Col', () => {
   const text = 'Hello World!';
