@@ -1,7 +1,4 @@
 # jon.black.next
-[![pipeline status](https://gitlab.com/jondotblack/jon.black/badges/master/pipeline.svg)](https://gitlab.com/jondotblack/jon.black/-/commits/master) [![coverage report](https://gitlab.com/jondotblack/jon.black/badges/master/coverage.svg)](https://gitlab.com/jondotblack/jon.black/-/commits/master)
-
-> This codebase & CI/CD are configured for [GitLab](https://gitlab.com/jondotblack/jon.black) and mirrored to [GitHub](https://github.com/jondotblack/jon.black/).
 
 Technical stack;
 ``` bash
@@ -14,7 +11,6 @@ Technical stack;
 - Jest (https://jestjs.io/)
 - React Testing Library (https://testing-library.com/docs/react-testing-library/intro)
 ```
-
 
 
 ##  Getting started
@@ -37,7 +33,7 @@ Storybook is setup using MDX docs.
 $ npm run storybook
 ```
 
-A unique local URL will be generated and displayed in the terminal.  You can see the latest version hosted on [GitLab pages](https://jondotblack.gitlab.io/jon.black/).
+A unique local URL will be generated and displayed in the terminal.
 
 
 ##  Running Tests
@@ -52,57 +48,10 @@ $ npm run test:coverage
 
 
 ## Hosting
-For this site I use [Render.com](https://render.com/) and [Cloudflare.com](https://www.cloudflare.com/)
-
-
-## Patterns
-
-### Hygen Templates
-[Hygen](http://www.hygen.io/) is a command line CLI template generator for front-end components.
-
-To install run
-``` bash
-$ brew tap jondot/tap
-$ brew install hygen
-```
-
-To create a new React component following new patterns.  For example, to create a new `Toaster` component, run...
-
-``` bash
-$ hygen component new --name Toaster --container true
-
-## output
-Loaded templates: _templates
-       added: src/components/toaster/ToasterContainer.js
-       added: src/components/toaster/Index.js
-       added: src/components/toaster/Toaster.styled.js
-       added: src/components/toaster/Toaster.js
-```
-
-If a Container component is not required then change the flag to `false`...
-``` bash
-$ hygen component new --name Toaster --container false
-
-## output
-Loaded templates: _templates
-       added: src/components/toaster/Index.js
-       added: src/components/toaster/Toaster.styled.js
-       added: src/components/toaster/Toaster.js
-```
-
-If you prefer to generate functional components then the `functional` flag to `true`...
-``` bash
-$ hygen component new --name Toaster --container false --functional true
-
-## output
-Loaded templates: _templates
-       added: src/components/toaster/Index.js
-       added: src/components/toaster/Toaster.styled.js
-       added: src/components/toaster/Toaster.js
-```
+For this site I use [DigitalOcean.com](https://www.digitalocean.com/) and [Cloudflare.com](https://www.cloudflare.com/)
 
 ### Grid System
-A simple Grid System using Emotion & Styled System.  The configuration for columns and gutter width are set in `./src/styles/theme.js`.
+A simple Grid System using Emotion & Styled System.  The configuration for columns and gutter width are set in `./src/styles/theme/`.
 
 ``` javascript
  <Container fluid>

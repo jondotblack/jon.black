@@ -34,12 +34,17 @@ const HomePage = () => {
         </Col>
         <Col>
           <List>
+            <List.Item>Spotify</List.Item>
             <List.Item>
-              <a href="https://www.territoryfoods.com" target="_blank" rel="noreferrer">
-                Territory Foods
+              <a href="https://somethingnew.co/" target="_blank" rel="noreferrer">
+                Something New
               </a>
             </List.Item>
-            <List.Item>Spotify</List.Item>
+            <List.Item>
+              <a href="https://includehealth.com/" target="_blank" rel="noreferrer">
+                Include Health
+              </a>
+            </List.Item>
             <List.Item>Amazon</List.Item>
             <List.Item>Goldman Sachs</List.Item>
             <List.Item>American Express</List.Item>
@@ -52,11 +57,7 @@ const HomePage = () => {
                 Foxy Shazam
               </a>
             </List.Item>
-            <List.Item>
-              <a href="https://somethingnew.co/" target="_blank" rel="noreferrer">
-                Something New
-              </a>
-            </List.Item>
+            <List.Item>Territory Foods</List.Item>
             <List.Item>Warner Music Group</List.Item>
             <List.Item>Capital Records</List.Item>
             <List.Item>
