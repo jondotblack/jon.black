@@ -13,13 +13,12 @@ const HomePage = () => {
       <Row mb={5}>
         <Col offset={{ lg: 3 }}>
           <Text lead mb={4}>
-            Hi, I&apos;m Jon - a creator with a technical mind. I consult for startups, coach
-            entrepreneurs, and build digital products. I&apos;m at my best when I&apos;m using my
-            experience as a developer and CTO to help teams find smarter strategies and greater
-            efficiencies.
+            Hi, I&apos;m Jon - I&apos;m currently VP of Engineering for IncludeHealth. I consult for
+            startups, coach entrepreneurs, and own{' '}
+            <a href="https://www.blackhill.farm">Black Hill Farm</a>.
           </Text>
           <Text lead>
-            For new business inquiries, coaching, mentorship - you can find me on{' '}
+            For coaching, mentorship, playing your mixtap - you can find me on{' '}
             <a href="https://www.linkedin.com/in/jontblack/">LinkedIn</a> or{' '}
             <a href="mailto:hello@jon.black">email</a>. Don&apos;t have anything specific, but just
             want to talk? I offer free <NextLink href="/office-hours">office hours</NextLink> every
