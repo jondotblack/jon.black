@@ -18,7 +18,7 @@ const HomePage = () => {
             <a href="https://www.blackhill.farm">Black Hill Farm</a>.
           </Text>
           <Text lead>
-            For coaching, mentorship, playing your mixtap - you can find me on{' '}
+            For coaching, mentorship, or playing your mixtap - you can find me on{' '}
             <a href="https://www.linkedin.com/in/jontblack/">LinkedIn</a> or{' '}
             <a href="mailto:hello@jon.black">email</a>. Don&apos;t have anything specific, but just
             want to talk? I offer free <NextLink href="/office-hours">office hours</NextLink> every
