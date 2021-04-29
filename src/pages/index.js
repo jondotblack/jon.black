@@ -13,7 +13,7 @@ const HomePage = () => {
       <Row mb={5}>
         <Col offset={{ lg: 3 }}>
           <Text lead mb={4}>
-            Hi, I&apos;m Jon - I&apos;m currently VP of Engineering for IncludeHealth. I consult for
+            Hi, I&apos;m Jon - currently VP of Engineering for IncludeHealth. I consult for
             startups, coach entrepreneurs, and own{' '}
             <a href="https://www.blackhill.farm">Black Hill Farm</a>.
           </Text>
