@@ -55,6 +55,13 @@ export const Styles = css`
     box-sizing: border-box;
   }
 
+  html {
+    --lodgify-ui-action-color: #0d0a00;
+    --lodgify-ui-action-darker-color: #0a0800;
+    --lodgify-ui-action-lighter-color: #9e9d99;
+    --lodgify-ui-action-contrast-color: #ffffff;
+  }
+
   body {
     margin: 0;
     font-family: var(--font-family);
