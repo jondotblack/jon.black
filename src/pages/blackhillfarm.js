@@ -27,6 +27,8 @@ const BlackHillFarmPage = () => {
             <Button href="https://jondotblack.notion.site/Black-Hill-Farm-Handbook-056e237ad9c34b40b57ab0bc5b3152bc">
               Things to do and places of interest
             </Button>
+            <br />
+            <Button href="https://www.instagram.com/blackhill.farm/">Instagram</Button>
           </Col>
         </Row>
       </Layout>
